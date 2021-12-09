@@ -23,7 +23,7 @@ public class BookData : IBookData
 
     public Task InsertBook(BookModel book) => _db.SaveData(storedProcedure: "dbo.Books_Insert", new { book.Title, book.Author, book.Description });
 
-    public Task UpdateBook(BookModel book) => _db.SaveData(storedProcedure: "dbo.Books_Update", new { book });
+    public Task UpdateBook(BookModel book) => _db.SaveData(storedProcedure: "dbo.Books_Update", new { book.Id, book.Title, book.Author, book.Description });
 
     public Task DeleteBook(int id) => _db.SaveData(storedProcedure: "dbo.Books_Delete", new { Id = id });
 }
